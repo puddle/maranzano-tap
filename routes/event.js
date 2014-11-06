@@ -13,12 +13,11 @@ router.post('/', function(req, res, next) {
     properties: req.body.properties
   }
   models.Event.create(event).then(function(event) {
-
+    res.json(event);
   }, function(error) {
     res.status(400);
     res.json({message: error.message});
   });
-  res.json(event);
 });
 
 module.exports = router;
